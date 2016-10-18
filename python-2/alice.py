@@ -5,7 +5,7 @@ letter_count = 0.0
 e_count = 0.0
 
 for letter in text:
-  if letter != ' ' and letter.lower() == 'e':
+  if letter.lower() == 'e':
     e_count += 1
     letter_count += 1
   elif letter != ' ':
