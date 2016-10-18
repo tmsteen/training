@@ -8,7 +8,7 @@ for letter in text:
   if letter != ' ' and letter.lower() == 'e':
     e_count += 1
     letter_count += 1
-  else:
+  elif letter != ' ':
     letter_count += 1
 
 percent = (e_count / letter_count) * 100
