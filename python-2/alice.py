@@ -1,16 +1,15 @@
 book = open("/home/student/Python II Data/alice_in_wonderland.dat")
-text = book.read()
+text = book.read().lower()
 
-letter_count = 0.0
-e_count = 0.0
-
+letter_count = 0
 for letter in text:
-  if letter.lower() == 'e':
-    e_count += 1
-    letter_count += 1
-  elif letter != ' ':
+  if letter.isalpha():
     letter_count += 1
 
-percent = (e_count / letter_count) * 100
+e_count = text.count('e')
 
-print "Total Letters: {:.0f}\nE's: {:.0f}\nPercent E's: {:.2f}%".format(letter_count, e_count, percent)
+percent = float(e_count) / letter_count
+
+print "Total Letters: {:.0f}".format(letter_count)
+print "E's: {:.0f}".format(e_count)
+print "Percent E's: {:.2f}%".format(percent*100)
