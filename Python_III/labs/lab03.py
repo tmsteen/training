@@ -1,27 +1,18 @@
-from string import whitespace
 from string import punctuation
 
 # Open and read files
-book = open('../alice_in_wonderland.dat')
-words = open('../words.txt')
-text = book.read().lower()
+with open('../alice_in_wonderland.dat') as book, open('../words.txt') as words:
+    text = book.read().lower()
 
-# Create Dictionary
-word_dict = {}
-for word in words:
-    word = word.replace("\r", '')
-    word = word.replace("\n", '')
-    word_dict[word] = 0
+    # Create Dictionary
+    word_dict = dict.fromkeys(words.read().splitlines(), 0)
 
 # Create list to hold word not in list
 missing_words = []
 
 # Remove all punctuation
-for char in punctuation:
-    text = text.replace(char, ' ')
-
-for char in whitespace:
-    text = text.replace(char, ' ')
+temp = str.maketrans(punctuation, ' ' * len(punctuation), "'")
+text = text.translate(temp)
 
 # Parse and Search
 parsed = text.split()
@@ -57,7 +48,9 @@ unique_missing = sorted(set(missing_words))
 for i in range(0, len(unique_missing), 5):
     try:
         print("{:13s}{:13s}{:13s}{:13s}{:13s}".format(unique_missing[i], unique_missing[i + 1],
-                                unique_missing[i + 2], unique_missing[i + 3], unique_missing[i + 4]))
+                                                      unique_missing[i + 2],
+                                                      unique_missing[i + 3],
+                                                      unique_missing[i + 4]))
     except:
         next
 
