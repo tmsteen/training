@@ -1,12 +1,12 @@
 from string import whitespace
 
-book = open('../../alice_in_wonderland.dat')
+book = open('alice_in_wonderland.dat')
 text = book.read()
 
 histogram = dict()
 
 for letter in text:
-  if letter not in whitespace: 
+  if letter not in whitespace:
     histogram[letter.lower()] = histogram.get(letter.lower(), 0) + 1
 
 unload = zip(histogram.values(), histogram.keys())
@@ -31,4 +31,3 @@ for i in unload[:30]:
   print(i[1] + " --> " + str(i[0]))
 
 '''
-

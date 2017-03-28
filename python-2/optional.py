@@ -6,7 +6,7 @@
 14-16 High Temp
 """
 
-data = open('../../tmpprecip.dat')
+data = open('tmpprecip.dat')
 
 weather_dict = dict()
 average_dict = dict()
@@ -35,9 +35,9 @@ for day in data:
   # total rainfall per month
   average_dict[day[0:2]] += float(day[8:13])
 
-
+print("Year	Total	Max Temp Min Temp Avg Temp")
 for year in sorted(weather_dict):
-  print("{}  {:5}  {:5}  {:5}  {:.1f}".format(year,
+  print("{}  	{:5}  	{:5}  	{:5}  	{:.1f}".format(year,
                                       weather_dict[year][0],
                                       weather_dict[year][1],
                                       weather_dict[year][2],

@@ -1,4 +1,4 @@
-book = open('/home/student/Python II Data/alice_in_wonderland.dat')
+book = open('alice_in_wonderland.dat')
 text = book.read().lower()
 
 first_caterpillar = text.find('caterpillar')
