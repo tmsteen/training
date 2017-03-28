@@ -1,0 +1,1 @@
+In class, we placed this module (banker.py) in a new directory labeled imports.  In the main program, we extended sys.path to include the new directory.  From there we imported either the entire module or the individual classes.
