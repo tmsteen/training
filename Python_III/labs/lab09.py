@@ -19,16 +19,16 @@ def dealer():
             deck.append(10 * x + y)
     shuffle(deck)
     
-    for i in deck:
-        index = str(i)
-        card = "{} of {}".format(ranks[int(index[0:-1])], suits[int(index[-1])])
+    for card in deck:
         yield card
 
 ranks = ['', '', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight',
          'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace']
 suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
-
+s
 for card in dealer():
+    rank, suit = divmod(card, 10)
+    card = "{} of {}".format(ranks[rank], suits[suit])
     print(card)
 
 
